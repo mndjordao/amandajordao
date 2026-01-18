@@ -351,6 +351,21 @@ header nav {
     #cursor-blur {
         display: none !important;
     }
+
+        /* Força os itens dentro da navegação a ficarem empilhados */
+    header nav {
+        flex-direction: column; /* O comando mágico: muda de 'linha' para 'coluna' */
+        gap: 15px;              /* Cria o espaço entre o Logo e o Botão */
+        padding-top: 15px;      /* Ajuste fino para não colar no topo da tela */
+        padding-bottom: 15px;   
+    }
+
+    /* Opcional: Se quiser que o botão fique bem largo e fácil de clicar no celular */
+    .btn-cta {
+        width: 100%;       /* Ocupa a largura toda */
+        text-align: center; /* Garante que o texto fique no meio */
+        justify-content: center;
+    }
 }
 
 /* =========================================

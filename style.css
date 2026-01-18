@@ -1,0 +1,413 @@
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #161616;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --accent: #6366f1; /* Roxo moderno */
+    --gradient: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-x: hidden; /* Importante para o rastro não criar barra de rolagem */
+}
+
+/* Rastro do Mouse (Glow Effect) */
+#cursor-blur {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Deixa clicar através do rastro */
+    z-index: -1;
+    transition: transform 0.1s ease; /* Suavidade */
+}
+
+/* =========================================
+   HEADER CORRIGIDO (Desktop e Geral)
+   ========================================= */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    /* Removemos o display flex daqui e passamos para a NAV */
+    padding: 0; /* Remove padding daqui para controlar na nav */
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+header nav {
+    display: flex; /* Agora sim os itens dentro da nav vão se alinhar */
+    justify-content: space-between; /* Joga um para cada ponta */
+    align-items: center; /* Centraliza na vertical */
+    
+    width: 100%;
+    max-width: 1200px; /* Evita que fiquem muito longe em monitores gigantes */
+    margin: 0 auto; /* Centraliza a barra no meio da tela */
+    padding: 1.5rem 5%; /* O espaçamento interno fica aqui agora */
+}
+
+/* Opcional: Garante que o Logo não tenha margens estranhas */
+.logo {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Impede que o texto do logo quebre */
+}
+
+/* Garante que o botão não encolha ou quebre */
+.btn-cta {
+    white-space: nowrap;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.dot { color: var(--accent); }
+
+.btn-cta {
+    background: var(--text-primary);
+    color: var(--bg-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-cta:hover { transform: scale(1.05); }
+
+/* Hero Section */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    background: var(--gradient);
+    
+    /* Versão para Chrome, Safari e Edge */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Versão Padrão (que resolve o erro) */
+    background-clip: text;
+    
+    /* Garante a transparência do texto para o fundo aparecer */
+    color: transparent; 
+}
+
+.hero p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.badge {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--accent);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Botões */
+.hero-actions { display: flex; gap: 15px; justify-content: center; }
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-secondary {
+    border: 1px solid #333;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+.btn-secondary:hover { border-color: var(--accent); }
+
+/* CTA Section */
+.cta {
+    padding: 10px 5%;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid #a1a1aa;
+    margin: 20px 80px;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    background-image: url('pingo.png');
+
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    cursor: default;
+    padding: 5px 0;
+}
+.cta-content h2:hover {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateX(10px);
+}
+
+.cta-content ul {
+    
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.cta-content li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.cta-content li:hover { 
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateY(-10px);  
+}
+
+/* Projetos - Layout Grid */
+#projetos { padding: 100px 5%; }
+.section-header { margin-bottom: 60px; text-align: center; }
+.section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden; /* Garante que a imagem respeite as bordas arredondadas */
+    border: 1px solid #222;
+    transition: 0.4s ease;
+    
+    /* NOVO: Faz o card virar uma coluna flexível */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ocupa a altura total disponível na grid */
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: #333;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card-image {
+    height: 180px; /* Reduzimos de 250px para 180px para equilibrar */
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #222; /* Uma linha sutil separando imagem do texto */
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha tudo sem distorcer */
+    transition: transform 0.4s;
+}
+.project-card:hover .placeholder-img { transform: scale(1.05); }
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz essa parte esticar para preencher vazios */
+    justify-content: space-between; /* Empurra o link para o final */
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.card-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px; /* Espaço antes do botão */
+}
+
+.card-links {
+    margin-top: auto; /* A Mágica: Empurra o link para o rodapé do card */
+    padding-top: 15px;
+    border-top: 1px solid #222; /* Linha opcional antes do botão */
+}
+
+.link-demo {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    #cursor-blur { display: none; } /* Desativa rastro no celular para performance */
+}
+
+/* =========================================
+   RESPONSIVIDADE MOBILE (Android & iOS)
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. Ajuste de Fontes para telas pequenas */
+    html {
+        font-size: 90%; /* Reduz levemente tudo */
+    }
+
+    .hero h1 {
+        font-size: 2.2rem; /* Diminui o título gigante */
+        line-height: 1.2;
+    }
+
+    /* 2. Header: Organiza Logo e Botão */
+    header {
+        padding: 1.5rem 5%;
+        flex-direction: column; /* Empilha um sobre o outro */
+        gap: 15px;
+        background: rgba(10, 10, 10, 0.95); /* Mais escuro para ler melhor */
+    }
+
+    /* 3. Ajuste nos Cards de Projeto */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Força 1 coluna única */
+        padding: 0 10px;
+    }
+
+    .card-image {
+        height: 200px; /* Altura menor para caber na tela */
+    }
+
+    /* 4. Botões mais fáceis de tocar (Dedo gordo) */
+    .hero-actions {
+        flex-direction: column; /* Botões um embaixo do outro */
+        width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Botão ocupa a largura toda */
+        text-align: center;
+        justify-content: center;
+        padding: 18px; /* Área de toque maior */
+    }
+
+    /* 5. Remove o Rastro do Mouse (Economiza bateria) */
+    #cursor-blur {
+        display: none !important;
+    }
+}
+
+/* =========================================
+   CORREÇÕES ESPECÍFICAS PARA IOS (iPhone)
+   ========================================= */
+@supports (-webkit-touch-callout: none) {
+    /* Corrige altura da tela no Safari (barra de endereço) */
+    .hero {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Remove a cor azul de clique padrão do Android/iOS */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   RODAPÉ (FOOTER) CORRIGIDO
+   ========================================= */
+
+footer {
+    border-top: 1px solid #222; /* Linha sutil para separar */
+    padding: 40px 0;
+    margin-top: 80px;
+    background: rgba(10, 10, 10, 0.5); /* Fundo levemente transparente */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Coloca o texto em cima e ícones embaixo */
+    align-items: center;    /* CENTRALIZA TUDO NA HORIZONTAL */
+    justify-content: center;
+    gap: 20px; /* Espaço entre o texto e os ícones */
+    text-align: center;
+}
+
+.footer-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Estilo dos Ícones */
+.socials {
+    display: flex;
+    gap: 25px; /* Espaço entre o LinkedIn e o GitHub */
+}
+
+.socials a {
+    color: var(--text-secondary); /* Cor cinza inicial */
+    font-size: 2rem; /* Tamanho dos ícones (32px) */
+    transition: all 0.3s ease;
+    display: flex; /* Remove bugs de alinhamento */
+}
+
+/* Efeito Hover (Muda de cor e sobe um pouquinho) */
+.socials a:hover {
+    color: var(--accent); /* Fica roxo/neon */
+    transform: translateY(-5px); /* Efeito de flutuar */
+}
